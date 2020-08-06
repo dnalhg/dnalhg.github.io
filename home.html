@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Plants</title>
+        <link rel="stylesheet" href="home.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+
+    <body>
+
+        <textarea class="console" id="console">Type commands here. Type help for a list of commands.&#013> </textarea>
+        <script src="console.js"></script>
+        <script src="plant.js"></script>
+        <script src="game.js"></script>
+        <script>
+            $(document).ready(function() {
+            var commandbox = $("#console");
+            focusEnd();
+            commandbox.mousedown(function(e) {
+                focusEnd();
+                e.preventDefault();
+            })
+            commandbox.keydown(handleTextInput);
+            });
+        </script>
+
+        <div style="position:relative; width: 100%; height: 68%; overflow: hidden;">
+            <div class="plant-container">
+                <img class="background" src="img/background.png" />
+                <img class="cell" src="img/blank.png" id="A1"/>
+                <img class="cell" src="img/blank.png" id="A2"/>
+                <img class="cell" src="img/blank.png" id="A3"/>
+                <img class="cell" src="img/blank.png" id="B1"/>
+                <img class="cell" src="img/blank.png" id="B2"/>
+                <img class="cell" src="img/blank.png" id="B3"/>
+                <img class="cell" src="img/blank.png" id="C1"/>
+                <img class="cell" src="img/blank.png" id="C2"/>
+                <img class="cell" src="img/blank.png" id="C3"/>
+            </div>
+
+            <div class="info-container">
+                <div class="stamina-border">
+                    <div class="stamina-bar" id="stamina"></div>
+                    <h3 class="stamina-info" id="stamina-info">Stamina: 10/10</h3>
+                </div>
+                <div class="flower-count-container" id="flower-cont">
+                    <h3 class="flower-info" id="flower-count">x 0</h3>
+                </div>
+                <button class="music" id="music-button" data-playing="false"></button>
+            </div>
+        </div>
+        <script>
+            var flowerCount = $('#flower-cont');
+            flowerCount.css({'width':flowerCount.height()+'px'});
+        </script>
+
+
+        <audio autoplay loop id="bgm">
+            <source src="sound/northern_lullaby.mp3" type="audio/mpeg">
+        </audio>
+        <script>
+            var btn = $('#music-button');
+            var audio = $('#bgm');
+            btn.css({'height':btn.width()+'px'});
+            btn.click(function(){
+                btn.toggleClass("active");
+                if (btn.data("playing") == false) {
+                    audio[0].play();
+                } else {
+                    audio[0].pause();
+                }
+                btn.data("playing", !btn.data("playing"));
+            });
+        </script>
+        
+    </body>
+
+</html>

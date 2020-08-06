@@ -1,0 +1,121 @@
+html, body, textarea {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    height: 100%;
+  }
+
+.console {
+    background-color: black;
+    color: white;
+    resize: none;
+    width: 100%; 
+    height: 30%;
+    margin: 0; 
+    padding: 0; 
+    border-width: 0; 
+}
+
+.plant-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border-width: 0; 
+  float: left;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border-width: 0; 
+}
+.cell {
+  position: relative;
+  left: 2%;
+  width: 30%;
+  height: 30%;
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+}
+
+.info-container {
+  position: relative;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+}
+
+.stamina-border {
+  position: relative;
+  top: 1%;
+  left: 40%;
+  width: 20%;
+  height: 10%;
+  padding: 0;
+  margin: 0;
+  background-color: grey;
+}
+.stamina-bar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: green;
+}
+.stamina-info {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+
+.flower-count-container {
+  position: relative;
+  top: 15%;
+  left: 40%;
+  height: 15%;
+  padding: 0;
+  margin: 0;
+  background: url("img/flower_icon.png") no-repeat;
+  background-size: 100%;
+}
+.flower-info {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+
+.music {
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  width: 4%;
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+  background: url("img/mute.png") no-repeat;
+  background-size: 100%;
+}
+.music.active {
+  background: url("img/speaker.png") no-repeat;
+  background-size: 100%;
+}
