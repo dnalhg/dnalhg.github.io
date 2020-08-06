@@ -1,5 +1,5 @@
 # Plants
-A simple gardening web app made using HTML, CSS and JavaScript. To run, open home.html or visit dnalhg.github.io
+A simple gardening web app made using HTML, CSS and JavaScript. To run, open home.html or visit dnalhg.github.io/plants
 
 The game involves tending to a plot of flowers by planting, watering and harvesting the flowers. It was a good experience for me to learn the basics of HTML, CSS and website design.
 
