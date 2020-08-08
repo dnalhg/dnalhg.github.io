@@ -44,6 +44,18 @@ function updateStamina(amount) {
     staminaBar.style.width = stamina*10 + "%";
 }
 
+function restoreStamina() {
+    if (stamina >= 10) {
+        return;
+    }
+    stamina += 1;
+    var staminaBar = document.getElementById("stamina");
+    var staminaTxt = document.getElementById("stamina-info");
+
+    staminaTxt.textContent = "Stamina: " + stamina + "/10";
+    staminaBar.style.width = stamina*10 + "%";
+}
+
 function updateFlowerCount(amount) {
     flowersCollected += amount;
     var flowerCount = document.getElementById("flower-count");
@@ -119,24 +131,40 @@ function rest() {
     }
 }
 
+function resetPlants() {
+    for(i=0; i<9; i++) {
+        var p = plants[i];
+        var slot = indexToCell[i];
+        if (p == null) {
+            continue;
+        }
+        if (p.watered) {
+            p.watered = false;
+            if (p.daysWatered < p.growthTime) {
+                p.daysWatered += 1;
+            }
+            document.getElementById(slot).src = plants[cellToIndex[slot]].getPlantSprite();
+        }
+    }
+}
+
 function help () {
     const helpString = "Plant and care for your plants with the following commands:\n" +
                        "\nHELP: Displays a list of all commands.\n" +
                        "Usage: HELP\n" +
-                       "\nREST: Rest a day to restore stamina and let plants grow.\n" + 
-                       "Usage: REST\n" +
-                       "\nPLANT: Plants a new plant at a given slot. Uses 3 stamina.\n" + 
-                       "Usage: PLANT <SLOT>\n" + 
-                       "Example usage: PLANT A1\n" +
-                       "\nWATER: Waters the plant at a specified slot. Uses 1 stamina.\n" + 
-                       "Usage: WATER <SLOT>\n" +
-                       "Example usage: WATER A1\n" +
-                       "\nHARVEST: Harvest the plant at a specified slot. Uses 1 stamina.\n" +
-                       "Usage: HARVEST <SLOT>\n" +
-                       "Example usage: HARVEST A1\n" +
-                       "\nINSPECT: Get more information about the plant at a specified slow.\n" +
-                       "Usage: INSPECT <SLOT>\n" +
-                       "Example usage: INSPECT A1\n";
+                       "\nPLANT: Plants a new plant at a given slot/s. Uses 3 stamina.\n" + 
+                       "Usage: PLANT <SLOT(S)>\n" + 
+                       "Example uses: PLANT A1, PLANT A2 B3 ...\n" +
+                       "\nWATER: Waters the plant at a specified slot/s. Uses 1 stamina.\n" + 
+                       "Usage: WATER <SLOT(S)>\n" +
+                       "Example uses: WATER A1, WATER B2 C1 ...\n" +
+                       "\nHARVEST: Harvest the plant at a specified slot/s. Uses 1 stamina.\n" +
+                       "Usage: HARVEST <SLOT(S)>\n" +
+                       "Example uses: HARVEST A1, HARVEST A3 B2 ...\n" +
+                       "\nINSPECT: Get more information about the plant at a specified slot/s.\n" +
+                       "Usage: INSPECT <SLOT(S)>\n" +
+                       "Example uses: INSPECT A1, INSPECT A1 A2 ...\n" + 
+                       "\n1 Stamina restores every 30 seconds, plants need to be watered every minute\n";
     
     return helpString;
 }

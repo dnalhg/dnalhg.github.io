@@ -14,7 +14,7 @@ class Plant {
     }
 
     info() {
-        return "Name: " + this.name + "\nWatered today: " + this.watered + "\nReady to harvest: " + this.isHarvestable();
+        return "Name: " + this.name + "\nWatered: " + this.watered + "\nReady to harvest: " + this.isHarvestable();
     }
 
     water() {

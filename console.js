@@ -102,24 +102,29 @@ function processText(command) {
 
 function execute(func, splitted) {
     var commandName = splitted[0];
-    if (splitted.length != 2) {
-        return "Invalid use of " + commandName + " command";
+    if (splitted.length < 2) {
+        return "No slot/s specified";
     }
 
-    if (!isValidSlot(splitted[1])) {
-        return "Invalid slot to " + commandName;
+    var resultString = "";
+    for(i=1; i<splitted.length; i++) {
+        var slot = splitted[i];
+        if (!isValidSlot(slot)) {
+            resultString += "Invalid slot " + slot + "\n";
+            continue;
+        }
+        var result = func(slot);
+        if (commandName == "INSPECT") {
+            resultString += result + "\n\n";
+            continue;
+        }
+        if (result == 2) {
+            resultString += "Not enough stamina to " + commandName + " " + slot + "\n";
+        } else if (result) {
+            resultString += commandName + "ED " + slot + "\n";
+        } else {
+            resultString += "Could not " + commandName + " " + slot + "\n";
+        }
     }
-
-    var result = func(splitted[1]);
-    if (commandName == "INSPECT") {
-        return result;
-    }
-
-    if (result == 2) {
-        return "Not enough stamina!"
-    } else if (result) {
-        return commandName + "ED " + splitted[1];
-    } else {
-        return "Could not " + commandName + " " + splitted[1];
-    }
+    return resultString;
 }

@@ -22,6 +22,8 @@
                 e.preventDefault();
             })
             commandbox.keydown(handleTextInput);
+            setInterval(restoreStamina, 30000);
+            setInterval(resetPlants, 60000);
             });
         </script>
 

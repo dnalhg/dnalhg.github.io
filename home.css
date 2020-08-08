@@ -16,6 +16,8 @@ html, body, textarea {
     margin: 0; 
     padding: 0; 
     border-width: 0; 
+    font-size: 20px;
+    font-size: 1vw;
 }
 
 .plant-container {
@@ -63,7 +65,7 @@ html, body, textarea {
 .stamina-border {
   position: relative;
   top: 1%;
-  left: 40%;
+  left: 15%;
   width: 20%;
   height: 10%;
   padding: 0;
@@ -86,14 +88,14 @@ html, body, textarea {
 }
 
 .flower-count-container {
-  position: relative;
-  top: 15%;
-  left: 40%;
+  position: absolute;
+  top: 0%;
+  left: 60%;
   height: 15%;
   padding: 0;
   margin: 0;
   background: url("img/flower_icon.png") no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 .flower-info {
   position: absolute;
@@ -113,9 +115,9 @@ html, body, textarea {
   margin: 0;
   border-width: 0;
   background: url("img/mute.png") no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 .music.active {
   background: url("img/speaker.png") no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
