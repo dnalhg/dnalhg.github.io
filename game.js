@@ -164,7 +164,8 @@ function help () {
                        "\nINSPECT: Get more information about the plant at a specified slot/s.\n" +
                        "Usage: INSPECT <SLOT(S)>\n" +
                        "Example uses: INSPECT A1, INSPECT A1 A2 ...\n" + 
-                       "\n1 Stamina restores every 30 seconds, plants need to be watered every minute\n";
+                       "\n1 Stamina restores every 30 seconds, plants need to be watered every minute\n" +
+                       "Available slots: A1, A2, A3, B1, B2, B3, C1, C2, C3\n";
     
     return helpString;
 }
